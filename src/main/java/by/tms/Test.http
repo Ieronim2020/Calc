@@ -1,14 +1,33 @@
-GET http://localhost:8080/?num1=5.5&num2=0&type=div
+#GET http://localhost:8080/?num1=5.5&num2=0&type=div
+#
+####
+#
+#GET http://localhost:8080/?num1=2&num2=3.3&type=add
+#
+####
+#
+#GET http://localhost:8080/?num1=2.2&num2=1&type=dim
+#
+####
+#
+#GET http://localhost:8080/?num1=10.3&num2=4&type=mul
+
+POST http://localhost:8080/reg
+Content-Type: application/x-www-form-urlencoded
+
+login=test&name=Test&password=12345678
 
 ###
 
-GET http://localhost:8080/?num1=2&num2=3.3&type=add
+POST http://localhost:8080/auth
+Content-Type: application/x-www-form-urlencoded
+
+login=test&password=12345678
 
 ###
 
-GET http://localhost:8080/?num1=2.2&num2=1&type=dim
+GET http://localhost:8080/calc?num1=5.5&num2=9&type=div
 
 ###
 
-GET http://localhost:8080/?num1=10.3&num2=4&type=mul
-
+GET http://localhost:8080/logout
