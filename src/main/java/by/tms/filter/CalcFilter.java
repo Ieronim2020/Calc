@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(filterName = "CalcFilter", urlPatterns = "/calc")
+@WebFilter(urlPatterns = "/calc")
 public class CalcFilter extends HttpFilter {
 
     @Override

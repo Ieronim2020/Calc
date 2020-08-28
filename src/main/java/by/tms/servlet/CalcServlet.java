@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CalcServlet", urlPatterns = "/calc")
+@WebServlet(urlPatterns = "/calc", loadOnStartup = 1)
 public class CalcServlet extends HttpServlet {
 
     @Override

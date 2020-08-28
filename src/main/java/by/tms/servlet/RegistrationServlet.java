@@ -16,7 +16,7 @@ public class RegistrationServlet extends HttpServlet {
         String password = req.getParameter("password");
         String name = req.getParameter("name");
 
-        User user = new User(login, name, password);
+        User user = new User(password, name, login);
         List<User> users = (List<User>) getServletContext().getAttribute("users");
         users.add(user);
     }
