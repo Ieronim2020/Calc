@@ -4,21 +4,21 @@ public class User {
     private static int incId = 1;
     private int id = incId++;
 
+    private String login;
     private String password;
     private String name;
-    private String login;
 
-    public User(int id, String password, String name, String login) {
+    public User(int id, String login, String password, String name) {
         this.id = id;
+        this.login = login;
         this.password = password;
         this.name = name;
-        this.login = login;
     }
 
-    public User(String password, String name, String login) {
+    public User(String login, String password, String name) {
+        this.login = login;
         this.password = password;
         this.name = name;
-        this.login = login;
     }
 
     public String getPassword() {
@@ -49,9 +49,9 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", login='" + login + '\'' +
                 '}';
     }
 }

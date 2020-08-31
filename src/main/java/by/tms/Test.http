@@ -17,3 +17,6 @@ GET http://localhost:8080/calc?num1=5.5&num2=9&type=div
 ###
 
 GET http://localhost:8080/logout
+
+###
+GET http://localhost:8080/jsp?name=Test
