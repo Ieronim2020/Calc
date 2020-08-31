@@ -1,7 +1,7 @@
 POST http://localhost:8080/reg
 Content-Type: application/x-www-form-urlencoded
 
-login=test&name=Test&password=12345678
+login=test&password=12345678&name=Test
 
 ###
 

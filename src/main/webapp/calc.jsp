@@ -21,9 +21,7 @@
     <c:if test="${requestScope.result != null}">
         ${requestScope.result}
     </c:if>
-    <c:if test="${requestScope.result == null}">
 
-    </c:if>
     <br><a href="/">Home</a></br>
 </form>
 </body>
