@@ -24,7 +24,7 @@ public class RegistrationServlet extends HttpServlet {
         String password = req.getParameter("password");
         String name = req.getParameter("name");
         if (login != null && password != null && name != null) {
-            User user = new User(login, password, name);
+            User user = new User(login, name, password);
             List<User> users = (List<User>) getServletContext().getAttribute("users");
             users.add(user);
             resp.sendRedirect("/");

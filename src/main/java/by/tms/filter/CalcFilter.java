@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/calc")
+@WebFilter(urlPatterns = "/")
 public class CalcFilter extends HttpFilter {
 
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         if (req.getSession().getAttribute("user") == null) {
-            res.sendRedirect("/");
+            res.sendRedirect("/reg");
         } else {
             chain.doFilter(req, res);
+            req.getRequestDispatcher("/").forward(req, res);
         }
     }
 }

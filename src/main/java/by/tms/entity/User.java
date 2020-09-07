@@ -1,24 +1,31 @@
 package by.tms.entity;
 
 public class User {
-    private static int incId = 1;
-    private int id = incId++;
-
+    private long id;
     private String login;
-    private String password;
     private String name;
+    private String password;
 
-    public User(int id, String login, String password, String name) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.name = name;
+
+    public long getId() {
+        return id;
     }
 
-    public User(String login, String password, String name) {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public User(long id, String login, String name, String password) {
+        this.id = id;
         this.login = login;
-        this.password = password;
         this.name = name;
+        this.password = password;
+    }
+
+    public User(String login, String name, String password) {
+        this.login = login;
+        this.name = name;
+        this.password = password;
     }
 
     public String getPassword() {
