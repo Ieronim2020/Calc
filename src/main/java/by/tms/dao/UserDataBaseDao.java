@@ -16,8 +16,19 @@ public class UserDataBaseDao implements UserDao {
     private static final String UPDATE_BY_ID = "UPDATE users SET login = ?, name  = ?, password = ? WHERE id = ?";
     private static final String DELETE_BY_ID = "DELETE FROM users WHERE id = ?";
 
+
+    public static UserDao instance = null;
+
     public UserDataBaseDao(Connection connection) {
         this.connection = connection;
+    }
+
+    public static UserDao getInstance(Connection connection) {
+        if (instance == null) {
+            return new UserDataBaseDao(connection);
+        } else {
+            return instance;
+        }
     }
 
     @Override
@@ -60,6 +71,7 @@ public class UserDataBaseDao implements UserDao {
             ResultSet resultSet = st.executeQuery();
             if (resultSet.next()) {
                 return new User(
+                        resultSet.getLong("id"),
                         resultSet.getString("name"),
                         resultSet.getString("login"),
                         resultSet.getString("password")
@@ -144,18 +156,18 @@ public class UserDataBaseDao implements UserDao {
         return false;
     }
 
-
-    public static void main(String[] args) throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/store?serverTimezone=UTC", "root", "Bthjybv19841030");
-        UserDao userDao = new UserDataBaseDao(connection);
+//    public static void main(String[] args) throws SQLException {
+//        Connection connection = DriverManager.getConnection(
+//                "jdbc:postgresql://localhost:5432/postgres", "postgres", "q12345");
+//        UserDao userDao = new UserDataBaseDao(connection);
 //        userDao.create(new User("Vasia@12", "Vasiliy", "13579"));
 //        userDao.updateById(new User(1, "gfg", "fgf", "1234"));
 //        userDao.deleteById(1);
 //        System.out.println(userDao.getAll());
 //        userDao.create(new User("Sasha@1", "Aleksandr", "1375"));
 //        userDao.create(new User("Dima@15", "Dmitriy", "1377"));
-        System.out.println(userDao.containsById(7));
-        System.out.println(userDao.containsByLogin("gfg"));
+//        System.out.println(userDao.containsById(7));
+//        System.out.println(userDao.containsByLogin("gfg"));
 
-    }
+//    }
 }

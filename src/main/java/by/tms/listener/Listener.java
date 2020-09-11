@@ -29,10 +29,18 @@ public class Listener implements ServletContextListener,
     }
 
     public void sessionCreated(HttpSessionEvent se) {
-        try {
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            se.getSession().setAttribute("connection", DriverManager.getConnection(
+//                    "jdbc:mysql://localhost/store?serverTimezone=UTC", "root", "Bthjybv19841030"));
+//        } catch (SQLException | ClassNotFoundException throwables) {
+//            throwables.printStackTrace();
+//        }
+        try{
+            Class.forName("org.postgresql.Driver");
             se.getSession().setAttribute("connection", DriverManager.getConnection(
-                    "jdbc:mysql://localhost/store?serverTimezone=UTC", "root", "Bthjybv19841030"));
-        } catch (SQLException throwables) {
+                    "jdbc:postgresql://localhost:5432/postgres", "postgres", "q12345"));
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
     }
